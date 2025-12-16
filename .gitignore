@@ -1,0 +1,17 @@
+# Docker
+Dockerfile
+docker-compose.yml
+
+# Kubernetes
+.kube/
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Temporary files
+tmp/
+*.tmp

@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: task-app-deployment
+  namespace: devops-project
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: task-app
+  template:
+    metadata:
+      labels:
+        app: task-app
+    spec:
+      containers:
+      - name: webapp
+        image: YOUR_DOCKERHUB_USERNAME/devops-task-app:latest
+        ports:
+        - containerPort: 80
+        env:
+        - name: DB_HOST
+          value: "mysql-service"
+        - name: DB_NAME
+          value: "taskdb"
+        - name: DB_USER
+          value: "taskuser"
+        - name: DB_PASSWORD
+          value: "taskpass"
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "250m"
