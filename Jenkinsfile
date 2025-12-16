@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Fetch Code from GitHub') {
             steps {
-                echo "📥 Fetching code from GitHub..."
+                echo "Fetching code from GitHub..."
                 checkout scm
                 sh 'echo "Files:" && find . -type f | grep -E "Dockerfile|\.php|\.yaml"'
             }
@@ -25,13 +25,13 @@ pipeline {
         
         stage('Push to Docker Hub') {
             steps {
-                echo "📤 Skipping Docker Hub for now"
+                echo "Skipping Docker Hub for now"
             }
         }
         
         stage('Deploy to Kubernetes') {
             steps {
-                echo "🚀 Deploying to Kubernetes..."
+                echo "Deploying to Kubernetes..."
                 
                 script {
                     sh 'kubectl apply -f kubernetes/namespace.yaml'
