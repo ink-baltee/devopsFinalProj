@@ -48,14 +48,14 @@ pipeline {
         
         stage('Setup Monitoring') {
             steps {
-                echo "📊 Monitoring setup skipped for now"
+                echo "Monitoring setup skipped for now"
             }
         }
     }
     
     post {
         always {
-            echo "✅ Pipeline completed!"
+            echo "Pipeline completed!"
         }
     }
 }
